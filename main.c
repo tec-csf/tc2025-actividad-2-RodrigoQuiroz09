@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h> 
  
 #define N 5 //Tamaño predefinido de los apuntadores
 
@@ -54,20 +55,22 @@ int main(){
   *(menu+1)=menu_double;
   *(menu+2)=menu_libro;
 
+  //Arreglo para generalizar la opción del usuario para escoger un iterador
   t_iterator *iterators = (t_iterator *) malloc( 3 * sizeof(t_iterator));
   *iterators=forward;
   *(iterators+1)=reverse;
   *(iterators+2)=bidirectional;
   int i=1;
-  //time_t t;
-
+  time_t t;
+  srand((unsigned) time(&t));
+  
   while (i)
   {
     printf("------------------------------------\n");
     printf("Escoja un tipo de dato\n");
-    printf("1.-INT\n");
-    printf("2.-DOUBLE\n");
-    printf("3.-Estructura Libro\n");
+    printf("1.- INT\n");
+    printf("2.- DOUBLE\n");
+    printf("3.- Estructura Libro\n");
     printf("4.- EXIT\n");
     scanf("%d",&i);
     if(i<=3&&i>0){
